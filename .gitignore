@@ -1,0 +1,26 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Generated vector database
+datasets/vector_db/
+
+# Temporary testing files
+large_test.txt
+sample_bug.pdf
+sample_bug.txt
+
+# System files
+.DS_Store
+Thumbs.db
+# Locally submitted bug reports
+datasets/submissions/

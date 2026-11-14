@@ -163,7 +163,7 @@ Cosine similarity is proposed as the initial similarity measurement technique.
 10. RAG Integration
 
 The knowledge base will support the following RAG workflow:
-
+```mermaid
 flowchart TD
     A[Historical Bug Datasets] --> B[Data Cleaning]
     B --> C[Document Chunking]
@@ -178,7 +178,7 @@ flowchart TD
     I --> J[Retrieve Similar Defects]
     J --> K[Relevant Historical Context]
     K --> L[LLM Diagnosis and Fix Recommendations]
-
+```
 The retrieved historical information will provide context for the AI agents during diagnosis.
 
 11. Knowledge Base Update Strategy

@@ -1,0 +1,94 @@
+{
+    "bugs": [
+        {
+            "component": "Settings UI",
+            "creation_time": "1999-07-30T22:55:51Z",
+            "id": 10954,
+            "product": "Firefox",
+            "resolution": "WONTFIX",
+            "status": "RESOLVED",
+            "summary": "Dialup properties needs to be exposed in prefs"
+        },
+        {
+            "component": "General",
+            "creation_time": "1999-09-24T21:49:34Z",
+            "id": 14871,
+            "product": "Firefox",
+            "resolution": "DUPLICATE",
+            "status": "RESOLVED",
+            "summary": "[Find] Find whole word only"
+        },
+        {
+            "component": "Settings UI",
+            "creation_time": "1999-11-17T22:58:26Z",
+            "id": 19118,
+            "product": "Firefox",
+            "resolution": "WONTFIX",
+            "status": "RESOLVED",
+            "summary": "Plug-In Manager (ui for choosing mimetype-plugin associations)"
+        },
+        {
+            "component": "File Handling",
+            "creation_time": "1999-12-11T04:13:35Z",
+            "id": 21482,
+            "product": "Firefox",
+            "resolution": "",
+            "status": "NEW",
+            "summary": "Improvement to Save File dialog: folder based on URL"
+        },
+        {
+            "component": "File Handling",
+            "creation_time": "2000-01-06T03:19:51Z",
+            "id": 23207,
+            "product": "Firefox",
+            "resolution": "",
+            "status": "NEW",
+            "summary": "Options in Save As (location of saved images, choice of filenames)"
+        },
+        {
+            "component": "File Handling",
+            "creation_time": "2000-01-18T23:21:55Z",
+            "id": 24278,
+            "product": "Firefox",
+            "resolution": "WORKSFORME",
+            "status": "RESOLVED",
+            "summary": "The download window is not resizable!"
+        },
+        {
+            "component": "File Handling",
+            "creation_time": "2000-02-12T03:41:00Z",
+            "id": 27493,
+            "product": "Firefox",
+            "resolution": "",
+            "status": "NEW",
+            "summary": "Default open/save directory isn't smart"
+        },
+        {
+            "component": "Tabbed Browser",
+            "creation_time": "2000-02-18T05:05:45Z",
+            "id": 28354,
+            "product": "Firefox",
+            "resolution": "FIXED",
+            "status": "RESOLVED",
+            "summary": "Implement hidden pref to enable transparent browsers ala Aterm or Eterm"
+        },
+        {
+            "component": "Settings UI",
+            "creation_time": "2000-04-06T04:22:59Z",
+            "id": 34763,
+            "product": "Firefox",
+            "resolution": "WONTFIX",
+            "status": "RESOLVED",
+            "summary": "add font-list support  to the font pref front end"
+        },
+        {
+            "component": "File Handling",
+            "creation_time": "2000-04-11T21:07:35Z",
+            "id": 35507,
+            "product": "Firefox",
+            "resolution": "",
+            "status": "NEW",
+            "summary": "URILoader needs to use webprogress to cancel loads"
+        }
+    ]
+}

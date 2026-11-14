@@ -1,0 +1,114 @@
+[
+    {
+        "chunk_id": "10954_summary",
+        "bug_id": 10954,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: Dialup properties needs to be exposed in prefs\nProduct: Firefox\nComponent: Settings UI"
+    },
+    {
+        "chunk_id": "10954_resolution",
+        "bug_id": 10954,
+        "source": "Mozilla",
+        "chunk_type": "resolution",
+        "text": "Bug Summary: Dialup properties needs to be exposed in prefs\nResolution: WONTFIX"
+    },
+    {
+        "chunk_id": "14871_summary",
+        "bug_id": 14871,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: [Find] Find whole word only\nProduct: Firefox\nComponent: General"
+    },
+    {
+        "chunk_id": "14871_resolution",
+        "bug_id": 14871,
+        "source": "Mozilla",
+        "chunk_type": "resolution",
+        "text": "Bug Summary: [Find] Find whole word only\nResolution: DUPLICATE"
+    },
+    {
+        "chunk_id": "19118_summary",
+        "bug_id": 19118,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: Plug-In Manager (ui for choosing mimetype-plugin associations)\nProduct: Firefox\nComponent: Settings UI"
+    },
+    {
+        "chunk_id": "19118_resolution",
+        "bug_id": 19118,
+        "source": "Mozilla",
+        "chunk_type": "resolution",
+        "text": "Bug Summary: Plug-In Manager (ui for choosing mimetype-plugin associations)\nResolution: WONTFIX"
+    },
+    {
+        "chunk_id": "21482_summary",
+        "bug_id": 21482,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: Improvement to Save File dialog: folder based on URL\nProduct: Firefox\nComponent: File Handling"
+    },
+    {
+        "chunk_id": "23207_summary",
+        "bug_id": 23207,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: Options in Save As (location of saved images, choice of filenames)\nProduct: Firefox\nComponent: File Handling"
+    },
+    {
+        "chunk_id": "24278_summary",
+        "bug_id": 24278,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: The download window is not resizable!\nProduct: Firefox\nComponent: File Handling"
+    },
+    {
+        "chunk_id": "24278_resolution",
+        "bug_id": 24278,
+        "source": "Mozilla",
+        "chunk_type": "resolution",
+        "text": "Bug Summary: The download window is not resizable!\nResolution: WORKSFORME"
+    },
+    {
+        "chunk_id": "27493_summary",
+        "bug_id": 27493,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: Default open/save directory isn't smart\nProduct: Firefox\nComponent: File Handling"
+    },
+    {
+        "chunk_id": "28354_summary",
+        "bug_id": 28354,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: Implement hidden pref to enable transparent browsers ala Aterm or Eterm\nProduct: Firefox\nComponent: Tabbed Browser"
+    },
+    {
+        "chunk_id": "28354_resolution",
+        "bug_id": 28354,
+        "source": "Mozilla",
+        "chunk_type": "resolution",
+        "text": "Bug Summary: Implement hidden pref to enable transparent browsers ala Aterm or Eterm\nResolution: FIXED"
+    },
+    {
+        "chunk_id": "34763_summary",
+        "bug_id": 34763,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: add font-list support  to the font pref front end\nProduct: Firefox\nComponent: Settings UI"
+    },
+    {
+        "chunk_id": "34763_resolution",
+        "bug_id": 34763,
+        "source": "Mozilla",
+        "chunk_type": "resolution",
+        "text": "Bug Summary: add font-list support  to the font pref front end\nResolution: WONTFIX"
+    },
+    {
+        "chunk_id": "35507_summary",
+        "bug_id": 35507,
+        "source": "Mozilla",
+        "chunk_type": "summary",
+        "text": "Bug Summary: URILoader needs to use webprogress to cancel loads\nProduct: Firefox\nComponent: File Handling"
+    }
+]
