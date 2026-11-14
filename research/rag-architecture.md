@@ -45,3 +45,25 @@ Proposed technologies:
 ## 6. Conclusion
 
 RAG combines retrieval and generation to produce context-aware responses. In our platform, it helps the AI agents use historical bug reports to support software defect diagnosis.
+
+## 7. Retrieval Evaluation
+
+Retrieval evaluation measures how effectively the system finds relevant historical bug reports.
+
+### Evaluation Metrics
+
+1. **Precision@K:** Measures the proportion of retrieved results that are relevant.
+2. **Recall@K:** Measures the proportion of all relevant results that are successfully retrieved.
+3. **Retrieval Latency:** Measures the time taken to retrieve relevant bug reports.
+
+### Example
+
+If the system retrieves 10 bug reports and 8 are relevant:
+
+Precision@10 = 8 / 10 = 80%
+
+### Importance in Our Project
+
+These metrics help evaluate the performance of the RAG retrieval pipeline and Duplicate Detection Agent.
+
+They help us understand whether the system retrieves relevant historical bugs accurately and efficiently.
