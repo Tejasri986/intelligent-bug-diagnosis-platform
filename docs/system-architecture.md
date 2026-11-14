@@ -9,7 +9,7 @@ The Intelligent Bug Diagnosis Platform is designed to analyze software bug repor
 The proposed system combines Retrieval-Augmented Generation (RAG), semantic similarity, vector search, and a multi-agent architecture.
 
 2. High-Level System Architecture
-
+```mermaid
 flowchart TD
     A[Developer / User] --> B[Bug Submission Interface]
     B --> C[Backend API - FastAPI]
@@ -41,7 +41,7 @@ flowchart TD
     T --> U[Results Interface]
 
     U --> V[Knowledge Base Update Module]
-
+```
 3. Architecture Components
 
 3.1 Bug Submission Interface

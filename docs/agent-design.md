@@ -161,7 +161,7 @@ Responsibilities:
 - Combine findings into a structured diagnosis.
 
 5. Proposed Agent Execution Workflow
-
+```mermaid
 flowchart TD
     A[Submitted Bug Report] --> B[Agent Orchestrator]
     B --> C[Triage Agent]
@@ -174,7 +174,7 @@ flowchart TD
 
     F --> G[Remediation Agent]
     G --> H[Diagnosis and Fix Recommendations]
-
+```
 6. Agent Communication
 
 Agents exchange structured information rather than independently processing the same raw input.
