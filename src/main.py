@@ -1,25 +1,45 @@
 
 from fastapi import FastAPI, Form, File, UploadFile, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 from datetime import datetime, timezone
 import json
 import uuid
 
-app = FastAPI(title="Intelligent Bug Diagnosis Platform")
+# Project paths
+BASE_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = BASE_DIR / "frontend"
+STORAGE_DIR = BASE_DIR / "datasets" / "submissions"
 
-# Submission storage directory
-STORAGE_DIR = Path("datasets/submissions")
+# Create storage directory if it does not exist
 STORAGE_DIR.mkdir(parents=True, exist_ok=True)
 
+# FastAPI application
+app = FastAPI(
+    title="Intelligent Bug Diagnosis Platform",
+    description="AI-powered software bug diagnosis platform"
+)
+
+# Serve frontend CSS and JavaScript
+app.mount(
+    "/static",
+    StaticFiles(directory=FRONTEND_DIR),
+    name="static"
+)
+
+# Upload settings
 MAX_FILE_SIZE = 1 * 1024 * 1024  # 1 MB
 ALLOWED_EXTENSIONS = {".txt", ".log", ".json"}
 
 
+# Dashboard route
 @app.get("/")
 def home():
-    return {"message": "Bug Diagnosis API is running"}
+    return FileResponse(FRONTEND_DIR / "index.html")
 
 
+# Bug report submission API
 @app.post("/submit")
 async def submit_bug_report(
     title: str = Form(...),
@@ -29,12 +49,14 @@ async def submit_bug_report(
     title = title.strip()
     description = description.strip()
 
+    # Validate title
     if not title or len(title) > 200:
         raise HTTPException(
             status_code=400,
             detail="Title must contain 1–200 characters"
         )
 
+    # Validate description
     if not description or len(description) > 20000:
         raise HTTPException(
             status_code=400,
@@ -43,6 +65,7 @@ async def submit_bug_report(
 
     file_content = None
 
+    # Validate optional uploaded file
     if file is not None:
         extension = Path(file.filename or "").suffix.lower()
 
@@ -68,6 +91,7 @@ async def submit_bug_report(
                 detail="File must contain valid UTF-8 text"
             )
 
+    # Create bug report
     report = {
         "report_id": str(uuid.uuid4()),
         "title": title,
@@ -76,6 +100,7 @@ async def submit_bug_report(
         "submitted_at": datetime.now(timezone.utc).isoformat()
     }
 
+    # Save report locally
     output_file = STORAGE_DIR / f"{report['report_id']}.json"
 
     with output_file.open("w", encoding="utf-8") as f:

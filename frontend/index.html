@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugSense AI | Intelligent Bug Diagnosis</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">✦</span>
+                <span>BugSense<span class="brand-ai"> AI</span></span>
+            </div>
+
+            <p class="menu-label">WORKSPACE</p>
+
+            <nav>
+                <a href="#" class="nav-link active">▦ Dashboard</a>
+                <a href="#" class="nav-link">＋ Submit Bug</a>
+                <a href="#" class="nav-link">◷ Bug Reports</a>
+                <a href="#" class="nav-link">⌘ AI Diagnosis</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="status-dot"></div>
+                <span>System Status</span>
+                <span class="online">Online</span>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="breadcrumb">Workspace / Dashboard</p>
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="profile">
+                    <span class="profile-icon">T</span>
+                    <span>Developer</span>
+                </div>
+            </header>
+
+            <section class="welcome">
+                <div>
+                    <p class="eyebrow">INTELLIGENT DEBUGGING PLATFORM</p>
+                    <h1>Welcome to BugSense AI <span>✦</span></h1>
+                    <p>Understand bugs. Discover insights. Build better software.</p>
+                </div>
+                <button class="primary-btn" onclick="showSubmitForm()">
+                    + Submit New Bug
+                </button>
+            </section>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <p>Total Bug Reports</p>
+                    <h2 id="totalReports">0</h2>
+                    <span>Submitted reports</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Knowledge Base</p>
+                    <h2>10</h2>
+                    <span>Mozilla sample reports</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Text Embeddings</p>
+                    <h2>16</h2>
+                    <span>Stored in ChromaDB</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>AI Agents</p>
+                    <h2>5</h2>
+                    <span>Designed for the platform</span>
+                </div>
+            </section>
+
+            <section class="content-grid">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Submit a Bug Report</h3>
+                            <p>Describe the issue you encountered.</p>
+                        </div>
+                        <span class="panel-icon">✧</span>
+                    </div>
+
+                    <form id="bugForm">
+
+                        <label for="title">Bug Title</label>
+                        <input type="text" id="title"
+                            placeholder="e.g. Application crashes on startup"
+                            maxlength="200" required>
+
+                        <label for="description">Bug Description</label>
+                        <textarea id="description"
+                            placeholder="Describe the bug, expected behavior and actual behavior..."
+                            maxlength="20000" required></textarea>
+
+                        <label for="file">Attach Error Log (Optional)</label>
+                        <input type="file" id="file" accept=".txt,.log,.json">
+
+                        <p class="file-hint">TXT, LOG or JSON · Maximum 1 MB</p>
+
+                        <button type="submit" class="primary-btn submit-btn">
+                            Submit Bug Report →
+                        </button>
+
+                        <p id="formMessage"></p>
+                    </form>
+                </div>
+
+                <div class="panel info-panel">
+                    <h3>How BugSense AI Works</h3>
+                    <p class="panel-description">The platform's planned diagnosis workflow</p>
+
+                    <div class="workflow-step">
+                        <span>01</span>
+                        <div>
+                            <h4>Bug Submission</h4>
+                            <p>Submit bug descriptions and error logs.</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <span>02</span>
+                        <div>
+                            <h4>Semantic Retrieval</h4>
+                            <p>Find similar historical bug reports.</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <span>03</span>
+                        <div>
+                            <h4>Intelligent Analysis</h4>
+                            <p>Analyze possible causes using specialized agents.</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <span>04</span>
+                        <div>
+                            <h4>Fix Recommendations</h4>
+                            <p>Provide possible solutions to developers.</p>
+                        </div>
+                    </div>
+
+                    <p class="coming-soon">Full diagnosis workflow is under development.</p>
+                </div>
+
+            </section>
+
+            <footer>
+                BugSense AI · Intelligent Bug Diagnosis Platform
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
