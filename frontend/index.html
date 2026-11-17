@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,169 +6,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BugSense AI | Intelligent Bug Diagnosis</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="/static/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="app-container">
+<div class="app-layout">
 
-        <aside class="sidebar">
-            <div class="brand">
-                <span class="brand-icon">✦</span>
-                <span>BugSense<span class="brand-ai"> AI</span></span>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">B</div>
+            <div>
+                <h2>BugSense<span> AI</span></h2>
+                <small>INTELLIGENCE PLATFORM</small>
+            </div>
+        </div>
+
+        <div class="workspace-label">WORKSPACE</div>
+
+        <nav class="navigation">
+            <a href="#" class="nav-link active">
+                <span>▦</span> Overview
+            </a>
+            <a href="#submit-section" class="nav-link">
+                <span>＋</span> Submit a Bug
+            </a>
+            <a href="#agents-section" class="nav-link">
+                <span>◈</span> AI Agents
+            </a>
+            <a href="#intelligence-section" class="nav-link">
+                <span>⌘</span> Intelligence
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="system-card">
+                <div class="system-indicator"></div>
+                <div>
+                    <strong>System operational</strong>
+                    <small>Diagnosis engine ready</small>
+                </div>
+            </div>
+            <div class="sidebar-footer">BUGSENSE AI · 2026</div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <span class="breadcrumb">Workspace / Overview</span>
+                <h3>Dashboard</h3>
             </div>
 
-            <p class="menu-label">WORKSPACE</p>
-
-            <nav>
-                <a href="#" class="nav-link active">▦ Dashboard</a>
-                <a href="#" class="nav-link">＋ Submit Bug</a>
-                <a href="#" class="nav-link">◷ Bug Reports</a>
-                <a href="#" class="nav-link">⌘ AI Diagnosis</a>
-            </nav>
-
-            <div class="sidebar-bottom">
-                <div class="status-dot"></div>
-                <span>System Status</span>
-                <span class="online">Online</span>
+            <div class="topbar-right">
+                <span class="online-badge">
+                    <span></span> All systems operational
+                </span>
+                <div class="profile-avatar">T</div>
             </div>
-        </aside>
+        </header>
 
-        <main class="main-content">
 
-            <header class="topbar">
-                <div>
-                    <p class="breadcrumb">Workspace / Dashboard</p>
-                    <h2>Dashboard</h2>
-                </div>
-                <div class="profile">
-                    <span class="profile-icon">T</span>
-                    <span>Developer</span>
-                </div>
-            </header>
+        <section class="welcome-section">
+            <div>
+                <span class="eyebrow">SOFTWARE INTELLIGENCE CENTER</span>
+                <h1>Understand bugs.<br><span>Resolve them smarter.</span></h1>
+                <p>
+                    An intelligent workspace to analyze software defects,
+                    investigate failures and discover actionable insights.
+                </p>
 
-            <section class="welcome">
-                <div>
-                    <p class="eyebrow">INTELLIGENT DEBUGGING PLATFORM</p>
-                    <h1>Welcome to BugSense AI <span>✦</span></h1>
-                    <p>Understand bugs. Discover insights. Build better software.</p>
-                </div>
-                <button class="primary-btn" onclick="showSubmitForm()">
-                    + Submit New Bug
+                <button class="primary-button" onclick="showSubmitForm()">
+                    + Analyze a new bug
                 </button>
-            </section>
+            </div>
 
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <p>Total Bug Reports</p>
-                    <h2 id="totalReports">0</h2>
-                    <span>Submitted reports</span>
+            <div class="welcome-visual">
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+                <div class="visual-center">✳</div>
+                <div class="floating-node node-one">AI</div>
+                <div class="floating-node node-two">⌘</div>
+                <div class="floating-node node-three">✦</div>
+            </div>
+        </section>
+
+
+        <!-- OVERVIEW STATS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Total submissions</span>
+                    <div class="stat-icon purple">▤</div>
+                </div>
+                <h2 id="totalReports">0</h2>
+                <small>Reports submitted in this session</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>AI agents</span>
+                    <div class="stat-icon blue">◈</div>
+                </div>
+                <h2>05</h2>
+                <small>Designed intelligence agents</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Knowledge base</span>
+                    <div class="stat-icon green">⌕</div>
+                </div>
+                <h2>10</h2>
+                <small>Historical Mozilla bug reports</small>
+            </div>
+
+        </section>
+
+
+        <!-- AGENTS -->
+        <section class="content-section" id="agents-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">MULTI-AGENT INTELLIGENCE</span>
+                    <h2>Meet your AI agents</h2>
+                    <p>Specialized agents designed for different diagnosis tasks.</p>
+                </div>
+                <span class="section-tag">5 AGENTS DESIGNED</span>
+            </div>
+
+            <div class="agent-grid">
+
+                <div class="agent-card">
+                    <div class="agent-icon purple">◈</div>
+                    <span class="agent-number">AGENT 01</span>
+                    <h3>Triage Agent</h3>
+                    <p>Classifies severity, priority and affected software components.</p>
+                    <span class="agent-status">Implemented</span>
                 </div>
 
-                <div class="stat-card">
-                    <p>Knowledge Base</p>
-                    <h2>10</h2>
-                    <span>Mozilla sample reports</span>
+                <div class="agent-card">
+                    <div class="agent-icon blue">⌕</div>
+                    <span class="agent-number">AGENT 02</span>
+                    <h3>Log Analysis</h3>
+                    <p>Extracts exceptions, errors and failure locations from logs.</p>
+                    <span class="agent-status">Implemented</span>
                 </div>
 
-                <div class="stat-card">
-                    <p>Text Embeddings</p>
-                    <h2>16</h2>
-                    <span>Stored in ChromaDB</span>
+                <div class="agent-card">
+                    <div class="agent-icon orange">⧉</div>
+                    <span class="agent-number">AGENT 03</span>
+                    <h3>Duplicate Detection</h3>
+                    <p>Designed to identify similar historical bug reports.</p>
+                    <span class="agent-status planned">Planned</span>
                 </div>
 
-                <div class="stat-card">
-                    <p>AI Agents</p>
-                    <h2>5</h2>
-                    <span>Designed for the platform</span>
+                <div class="agent-card">
+                    <div class="agent-icon green">⌘</div>
+                    <span class="agent-number">AGENT 04</span>
+                    <h3>Root Cause Analysis</h3>
+                    <p>Designed to investigate probable underlying causes.</p>
+                    <span class="agent-status planned">Planned</span>
                 </div>
-            </section>
 
-            <section class="content-grid">
+                <div class="agent-card">
+                    <div class="agent-icon pink">✧</div>
+                    <span class="agent-number">AGENT 05</span>
+                    <h3>Remediation Agent</h3>
+                    <p>Designed to recommend possible fixes for identified issues.</p>
+                    <span class="agent-status planned">Planned</span>
+                </div>
 
-                <div class="panel">
-                    <div class="panel-heading">
-                        <div>
-                            <h3>Submit a Bug Report</h3>
-                            <p>Describe the issue you encountered.</p>
-                        </div>
-                        <span class="panel-icon">✧</span>
-                    </div>
+            </div>
+        </section>
+
+
+        <!-- SUBMISSION -->
+        <section class="content-section submission-section" id="submit-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">START AN INVESTIGATION</span>
+                    <h2>Submit a bug report</h2>
+                    <p>Provide the issue details and optional diagnostic logs.</p>
+                </div>
+            </div>
+
+            <div class="submission-layout">
+
+                <div class="form-card">
 
                     <form id="bugForm">
 
-                        <label for="title">Bug Title</label>
-                        <input type="text" id="title"
-                            placeholder="e.g. Application crashes on startup"
-                            maxlength="200" required>
+                        <div class="form-group">
+                            <label for="title">Bug title</label>
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                placeholder="e.g. Database connection failure"
+                                maxlength="200"
+                                required
+                            >
+                        </div>
 
-                        <label for="description">Bug Description</label>
-                        <textarea id="description"
-                            placeholder="Describe the bug, expected behavior and actual behavior..."
-                            maxlength="20000" required></textarea>
+                        <div class="form-group">
+                            <label for="description">Issue description</label>
+                            <textarea
+                                id="description"
+                                name="description"
+                                placeholder="Describe what happened, what you expected and how to reproduce the issue..."
+                                maxlength="20000"
+                                required
+                            ></textarea>
+                        </div>
 
-                        <label for="file">Attach Error Log (Optional)</label>
-                        <input type="file" id="file" accept=".txt,.log,.json">
+                        <div class="form-group">
+                            <label for="file">Diagnostic logs <span>(Optional)</span></label>
+                            <input
+                                type="file"
+                                id="file"
+                                name="file"
+                                accept=".txt,.log,.json"
+                            >
+                            <small class="field-help">TXT, LOG or JSON · Maximum 1 MB</small>
+                        </div>
 
-                        <p class="file-hint">TXT, LOG or JSON · Maximum 1 MB</p>
-
-                        <button type="submit" class="primary-btn submit-btn">
-                            Submit Bug Report →
+                        <button type="submit" class="primary-button submit-button">
+                            Analyze bug report →
                         </button>
 
-                        <p id="formMessage"></p>
+                        <div id="formMessage" role="status"></div>
+
                     </form>
                 </div>
 
-                <div class="panel info-panel">
-                    <h3>How BugSense AI Works</h3>
-                    <p class="panel-description">The platform's planned diagnosis workflow</p>
+                <div class="process-card">
+                    <span class="eyebrow">ANALYSIS WORKFLOW</span>
+                    <h3>From issue to insight</h3>
 
-                    <div class="workflow-step">
-                        <span>01</span>
+                    <div class="process-step">
+                        <div class="process-number">01</div>
                         <div>
-                            <h4>Bug Submission</h4>
-                            <p>Submit bug descriptions and error logs.</p>
+                            <strong>Report intake</strong>
+                            <p>Capture bug details and diagnostic logs.</p>
                         </div>
                     </div>
 
-                    <div class="workflow-step">
-                        <span>02</span>
+                    <div class="process-line"></div>
+
+                    <div class="process-step">
+                        <div class="process-number">02</div>
                         <div>
-                            <h4>Semantic Retrieval</h4>
-                            <p>Find similar historical bug reports.</p>
+                            <strong>Intelligent analysis</strong>
+                            <p>Run triage and log analysis agents.</p>
                         </div>
                     </div>
 
-                    <div class="workflow-step">
-                        <span>03</span>
+                    <div class="process-line"></div>
+
+                    <div class="process-step">
+                        <div class="process-number">03</div>
                         <div>
-                            <h4>Intelligent Analysis</h4>
-                            <p>Analyze possible causes using specialized agents.</p>
+                            <strong>Structured insights</strong>
+                            <p>Collect diagnosis results for further investigation.</p>
                         </div>
                     </div>
-
-                    <div class="workflow-step">
-                        <span>04</span>
-                        <div>
-                            <h4>Fix Recommendations</h4>
-                            <p>Provide possible solutions to developers.</p>
-                        </div>
-                    </div>
-
-                    <p class="coming-soon">Full diagnosis workflow is under development.</p>
                 </div>
 
-            </section>
+            </div>
+        </section>
 
-            <footer>
-                BugSense AI · Intelligent Bug Diagnosis Platform
-            </footer>
 
-        </main>
-    </div>
+        <!-- INTELLIGENCE -->
+        <section class="content-section" id="intelligence-section">
+            <div class="intelligence-banner">
+                <div>
+                    <span class="eyebrow">BUILT FOR DEVELOPERS</span>
+                    <h2>Beyond error detection.</h2>
+                    <p>
+                        Bringing together defect intelligence, log investigation
+                        and historical knowledge to support smarter debugging.
+                    </p>
+                </div>
+                <div class="banner-symbol">✳</div>
+            </div>
+        </section>
 
-    <script src="/static/script.js"></script>
+        <footer>
+            <span>BugSense AI</span>
+            <span>Intelligent Bug Diagnosis Platform</span>
+        </footer>
+
+    </main>
+</div>
+
 </body>
 </html>
