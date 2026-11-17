@@ -8,6 +8,7 @@ from src.agents import run_triage, analyze_logs
 import json
 import uuid
 
+
 # Project paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
@@ -16,11 +17,13 @@ STORAGE_DIR = BASE_DIR / "datasets" / "submissions"
 # Create storage directory if it does not exist
 STORAGE_DIR.mkdir(parents=True, exist_ok=True)
 
+
 # FastAPI application
 app = FastAPI(
     title="Intelligent Bug Diagnosis Platform",
     description="AI-powered software bug diagnosis platform"
 )
+
 
 # Serve frontend CSS and JavaScript
 app.mount(
@@ -29,8 +32,9 @@ app.mount(
     name="static"
 )
 
+
 # Upload settings
-MAX_FILE_SIZE = 1 * 1024 * 1024  # 1 MB
+MAX_FILE_SIZE = 1 * 1024 * 1024
 ALLOWED_EXTENSIONS = {".txt", ".log", ".json"}
 
 
@@ -39,22 +43,44 @@ ALLOWED_EXTENSIONS = {".txt", ".log", ".json"}
 def home():
     return FileResponse(FRONTEND_DIR / "index.html")
 
-def run_bug_analysis(report_id: str, title: str, description: str, file_content: str = ""):
+
+# Agent orchestration
+
+def run_bug_analysis(
+    report_id: str,
+    title: str,
+    description: str,
+    file_content: str = ""
+):
     combined_text = f"{title}\n{description}\n{file_content}"
 
-    triage_result = run_triage(report_id, combined_text)
-    log_result = analyze_logs(file_content)
-
-    return {
+    result = {
         "report_id": report_id,
-        "triage": triage_result.model_dump(),
-        "log_analysis": log_result.model_dump()
+        "triage": None,
+        "log_analysis": None,
+        "errors": []
     }
+
+    try:
+        triage_result = run_triage(report_id, combined_text)
+        result["triage"] = triage_result.model_dump()
+    except Exception:
+        result["errors"].append("Triage Agent failed during analysis.")
+
+    try:
+        log_result = analyze_logs(file_content)
+        result["log_analysis"] = log_result.model_dump()
+    except Exception:
+        result["errors"].append("Log Analysis Agent failed during analysis.")
+
+    return result
+
+
 # Bug report submission API
 @app.post("/submit")
 async def submit_bug_report(
     title: str = Form(...),
-    description: str = Form(...),
+    description: str = Form(""),
     file: UploadFile | None = File(None)
 ):
     title = title.strip()
@@ -68,10 +94,10 @@ async def submit_bug_report(
         )
 
     # Validate description
-    if not description or len(description) > 20000:
+    if len(description) > 20000:
         raise HTTPException(
             status_code=400,
-            detail="Description must contain 1–20000 characters"
+            detail="Description must not exceed 20000 characters"
         )
 
     file_content = None
@@ -102,8 +128,14 @@ async def submit_bug_report(
                 detail="File must contain valid UTF-8 text"
             )
 
+    # Require either description or log file
+    if not description and not file_content:
+        raise HTTPException(
+            status_code=400,
+            detail="Provide either a bug description or a log file"
+        )
+
     # Create bug report
-        # Create bug report
     report_id = str(uuid.uuid4())
 
     report = {
@@ -128,4 +160,16 @@ async def submit_bug_report(
     output_file = STORAGE_DIR / f"{report_id}.json"
 
     with output_file.open("w", encoding="utf-8") as f:
-        json.dump(report, f, indent=4, ensure_ascii=False)
+        json.dump(
+            report,
+            f,
+            indent=4,
+            ensure_ascii=False
+        )
+
+    # Return analysis response to the API client
+    return {
+        "message": "Bug report submitted successfully",
+        "report_id": report_id,
+        "analysis": analysis_result
+    }

@@ -1,4 +1,9 @@
+2026-11-17 10:30:01 INFO Application started
+2026-11-17 10:30:02 INFO Connecting to database
+2026-11-17 10:30:03 WARNING Connection taking longer than expected
+2026-11-17 10:30:04 ERROR Database unavailable
 Traceback (most recent call last):
   File "app.py", line 25, in connect_database
     raise ConnectionError("Database unavailable")
 ConnectionError: Database unavailable
+2026-11-17 10:30:05 INFO Retrying connection

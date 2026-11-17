@@ -30,6 +30,7 @@ class TriageResult(BaseModel):
 
     reasoning: str
 
+
 def classify_severity(text: str) -> str:
     text = text.lower()
 
@@ -38,16 +39,26 @@ def classify_severity(text: str) -> str:
         "security breach",
         "data corruption",
         "system-wide failure",
-        "complete system failure"
+        "complete system failure",
+        "system completely down",
+        "critical service outage"
     ]
 
     high_keywords = [
         "application crash",
+        "application fails",
+        "application failure",
         "app crashes",
         "system crash",
         "unable to login",
         "service unavailable",
-        "major functionality failure"
+        "major functionality failure",
+        "database connection failed",
+        "database connection failure",
+        "database unavailable",
+        "connection refused",
+        "connection timeout",
+        "server unavailable"
     ]
 
     medium_keywords = [
@@ -55,7 +66,9 @@ def classify_severity(text: str) -> str:
         "feature not working",
         "functionality issue",
         "unexpected behavior",
-        "request failed"
+        "request failed",
+        "query failed",
+        "database error"
     ]
 
     low_keywords = [
@@ -81,6 +94,7 @@ def classify_severity(text: str) -> str:
 
     return "Medium"
 
+
 def classify_priority(severity: str) -> str:
     priority_mapping = {
         "Critical": "P0",
@@ -90,6 +104,7 @@ def classify_priority(severity: str) -> str:
     }
 
     return priority_mapping.get(severity, "P2")
+
 
 def identify_component(text: str) -> str:
     text = text.lower()
@@ -130,23 +145,27 @@ def identify_component(text: str) -> str:
 
     return "Unknown"
 
+
 def calculate_confidence(text: str, component: str) -> float:
     text = text.lower()
 
     severity_keywords = [
         "data loss", "security breach",
         "data corruption", "system-wide failure",
-        "complete system failure",
-        "application crash", "app crashes",
-        "system crash", "unable to login",
-        "service unavailable",
-        "major functionality failure",
+        "complete system failure", "system completely down",
+        "critical service outage", "application crash",
+        "application fails", "application failure",
+        "app crashes", "system crash", "unable to login",
+        "service unavailable", "major functionality failure",
+        "database connection failed",
+        "database connection failure",
+        "database unavailable", "connection refused",
+        "connection timeout", "server unavailable",
         "incorrect result", "feature not working",
         "functionality issue", "unexpected behavior",
-        "request failed", "ui issue",
-        "alignment issue", "color issue",
-        "minor warning", "cosmetic issue",
-        "spelling mistake"
+        "request failed", "query failed", "database error",
+        "ui issue", "alignment issue", "color issue",
+        "minor warning", "cosmetic issue", "spelling mistake"
     ]
 
     severity_found = any(
@@ -164,6 +183,7 @@ def calculate_confidence(text: str, component: str) -> float:
 
     return 35.0
 
+
 def generate_reasoning(
     severity: str,
     priority: str,
@@ -176,11 +196,14 @@ def generate_reasoning(
         f"as {priority}. The affected component is {component}. "
         f"Classification confidence is {confidence}%."
     )
+
+
 def run_triage(report_id: str, text: str) -> TriageResult:
     severity = classify_severity(text)
     priority = classify_priority(severity)
     component = identify_component(text)
     confidence = calculate_confidence(text, component)
+
     reasoning = generate_reasoning(
         severity, priority, component, confidence
     )
