@@ -247,7 +247,35 @@
                             Analyze bug report →
                         </button>
 
-                        <div id="formMessage" role="status"></div>
+                        
+<p id="formMessage"></p>
+
+<div id="analysisResults" class="analysis-results" style="display: none;">
+    <h3>Bug Diagnosis Results</h3>
+
+    <div id="triageResults">
+        <h4>Triage Analysis</h4>
+        <p><strong>Severity:</strong> <span id="severity"></span></p>
+        <p><strong>Priority:</strong> <span id="priority"></span></p>
+        <p><strong>Affected Component:</strong> <span id="component"></span></p>
+        <p><strong>Confidence:</strong> <span id="triageConfidence"></span></p>
+        <p><strong>Reasoning:</strong> <span id="triageReasoning"></span></p>
+    </div>
+
+    <div id="logResults">
+        <h4>Log Analysis</h4>
+        <p><strong>Exception:</strong> <span id="exceptionType"></span></p>
+        <p><strong>Error Message:</strong> <span id="errorMessage"></span></p>
+        <p><strong>Failure File:</strong> <span id="failureFile"></span></p>
+        <p><strong>Failure Method:</strong> <span id="failureMethod"></span></p>
+        <p><strong>Failure Line:</strong> <span id="failureLine"></span></p>
+        <p><strong>Confidence:</strong> <span id="logConfidence"></span></p>
+        <p><strong>Reasoning:</strong> <span id="logReasoning"></span></p>
+        <p><strong>Probable Code Path:</strong></p>
+        <pre id="codePath"></pre>
+    </div>
+</div>
+
 
                     </form>
                 </div>

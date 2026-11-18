@@ -106,8 +106,21 @@ def classify_priority(severity: str) -> str:
     return priority_mapping.get(severity, "P2")
 
 
+
 def identify_component(text: str) -> str:
     text = text.lower()
+
+    # Check specific UI problems before authentication keywords
+    ui_keywords = [
+        "button", "screen", "layout", "css",
+        "alignment", "display", "ui issue",
+        "not responding when clicked",
+        "does not respond when clicked",
+        "visual issue"
+    ]
+
+    if any(keyword in text for keyword in ui_keywords):
+        return "User Interface"
 
     component_keywords = {
         "Database": [
@@ -144,6 +157,7 @@ def identify_component(text: str) -> str:
             return component
 
     return "Unknown"
+
 
 
 def calculate_confidence(text: str, component: str) -> float:
