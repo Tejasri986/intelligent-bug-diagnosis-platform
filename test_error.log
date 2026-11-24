@@ -1,9 +1,10 @@
-2026-11-17 10:30:01 INFO Application started
-2026-11-17 10:30:02 INFO Connecting to database
-2026-11-17 10:30:03 WARNING Connection taking longer than expected
-2026-11-17 10:30:04 ERROR Database unavailable
 Traceback (most recent call last):
-  File "app.py", line 25, in connect_database
-    raise ConnectionError("Database unavailable")
-ConnectionError: Database unavailable
-2026-11-17 10:30:05 INFO Retrying connection
+  File "app/routes/auth.py", line 42, in login
+    user = authenticate_user(email, password)
+  File "app/services/auth.py", line 28, in authenticate_user
+    return database.query(User).filter(User.email == email).first()
+  File "app/database.py", line 15, in query
+    connection = get_connection()
+  File "app/database.py", line 10, in get_connection
+    return psycopg2.connect(DATABASE_URL)
+psycopg2.OperationalError: connection to server failed: Connection refused

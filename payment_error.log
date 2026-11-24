@@ -1,0 +1,11 @@
+2026-11-24 14:32:10 ERROR payment_service
+Traceback (most recent call last):
+  File "app/controllers/payment.py", line 85, in process_payment
+    result = payment_service.charge(customer_id, amount)
+  File "app/services/payment_service.py", line 42, in charge
+    response = gateway.create_payment(amount)
+  File "app/gateway.py", line 27, in create_payment
+    response = requests.post(api_url, json=payload, timeout=5)
+  File "requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+requests.exceptions.Timeout: HTTPSConnectionPool: Read timed out.

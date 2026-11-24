@@ -1,221 +1,224 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BugSense AI | Intelligent Bug Diagnosis</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script src="/static/script.js" defer></script>
+
+    <link rel="stylesheet" href="/static/style.css?v=2">
+    <script src="/static/script.js?v=2" defer></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <div class="app-layout">
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
-
         <div class="brand">
             <div class="brand-icon">B</div>
             <div>
-                <h2>BugSense<span> AI</span></h2>
+                <h2>BugSense <span>AI</span></h2>
                 <small>INTELLIGENCE PLATFORM</small>
             </div>
         </div>
 
-        <div class="workspace-label">WORKSPACE</div>
+        <p class="menu-label">WORKSPACE</p>
 
-        <nav class="navigation">
-            <a href="#" class="nav-link active">
-                <span>▦</span> Overview
-            </a>
-            <a href="#submit-section" class="nav-link">
-                <span>＋</span> Submit a Bug
+        <nav class="navigation" aria-label="Primary Navigation">
+            <a href="#overview" class="nav-link active">
+                <span class="nav-icon">▦</span> Overview
             </a>
             <a href="#agents-section" class="nav-link">
-                <span>◈</span> AI Agents
+                <span class="nav-icon">◈</span> AI Agents
+            </a>
+            <a href="#submit-section" class="nav-link">
+                <span class="nav-icon">＋</span> Submit a Bug
             </a>
             <a href="#intelligence-section" class="nav-link">
-                <span>⌘</span> Intelligence
+                <span class="nav-icon">⌘</span> Intelligence
             </a>
         </nav>
 
         <div class="sidebar-bottom">
             <div class="system-card">
-                <div class="system-indicator"></div>
+                <span class="system-dot"></span>
                 <div>
                     <strong>System operational</strong>
                     <small>Diagnosis engine ready</small>
                 </div>
             </div>
-            <div class="sidebar-footer">BUGSENSE AI · 2026</div>
+            <p class="sidebar-footer">BUGSENSE AI · v2.4 · 2026</p>
         </div>
-
     </aside>
-
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
 
-        <header class="topbar">
+        <header class="topbar" id="overview">
             <div>
                 <span class="breadcrumb">Workspace / Overview</span>
-                <h3>Dashboard</h3>
+                <h3>Engineering Dashboard</h3>
             </div>
 
             <div class="topbar-right">
                 <span class="online-badge">
-                    <span></span> All systems operational
+                    <span class="system-dot"></span>
+                    All systems operational
                 </span>
-                <div class="profile-avatar">T</div>
+                <div class="avatar" title="Workspace User">T</div>
             </div>
         </header>
 
-
-        <section class="welcome-section">
-            <div>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
                 <span class="eyebrow">SOFTWARE INTELLIGENCE CENTER</span>
-                <h1>Understand bugs.<br><span>Resolve them smarter.</span></h1>
+                <h1>
+                    Understand bugs.<br>
+                    <span>Resolve them smarter.</span>
+                </h1>
                 <p>
-                    An intelligent workspace to analyze software defects,
-                    investigate failures and discover actionable insights.
+                    An automated multi-agent workspace to classify defects,
+                    parse stack traces, and surface root-cause insights in seconds.
                 </p>
-
-                <button class="primary-button" onclick="showSubmitForm()">
-                    + Analyze a new bug
-                </button>
+                <div class="hero-actions">
+                    <button type="button" class="primary-button" onclick="showSubmitForm()">
+                        + Analyze a new bug
+                    </button>
+                    <a href="#agents-section" class="secondary-button">
+                        Explore agents
+                    </a>
+                </div>
             </div>
 
-            <div class="welcome-visual">
-                <div class="visual-orbit orbit-one"></div>
-                <div class="visual-orbit orbit-two"></div>
-                <div class="visual-center">✳</div>
-                <div class="floating-node node-one">AI</div>
-                <div class="floating-node node-two">⌘</div>
-                <div class="floating-node node-three">✦</div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="hero-core">✳</div>
+                <div class="hero-node node-a">AI</div>
+                <div class="hero-node node-b">⌘</div>
+                <div class="hero-node node-c">✦</div>
             </div>
         </section>
 
-
-        <!-- OVERVIEW STATS -->
+        <!-- STATISTICS -->
         <section class="stats-grid">
-
             <div class="stat-card">
-                <div class="stat-top">
+                <div class="stat-heading">
                     <span>Total submissions</span>
-                    <div class="stat-icon purple">▤</div>
+                    <span class="stat-icon purple">▤</span>
                 </div>
                 <h2 id="totalReports">0</h2>
-                <small>Reports submitted in this session</small>
+                <p>Reports diagnosed this session</p>
             </div>
 
             <div class="stat-card">
-                <div class="stat-top">
-                    <span>AI agents</span>
-                    <div class="stat-icon blue">◈</div>
+                <div class="stat-heading">
+                    <span>Active agents</span>
+                    <span class="stat-icon blue">◈</span>
                 </div>
-                <h2>05</h2>
-                <small>Designed intelligence agents</small>
+                <h2>02 <small>/ 05</small></h2>
+                <p>Production agents online</p>
             </div>
 
             <div class="stat-card">
-                <div class="stat-top">
-                    <span>Knowledge base</span>
-                    <div class="stat-icon green">⌕</div>
+                <div class="stat-heading">
+                    <span>Diagnosis modules</span>
+                    <span class="stat-icon green">⌕</span>
                 </div>
-                <h2>10</h2>
-                <small>Historical Mozilla bug reports</small>
+                <h2>02</h2>
+                <p>Automated triage &amp; log extraction</p>
             </div>
-
         </section>
-
 
         <!-- AGENTS -->
         <section class="content-section" id="agents-section">
-
             <div class="section-heading">
                 <div>
                     <span class="eyebrow">MULTI-AGENT INTELLIGENCE</span>
-                    <h2>Meet your AI agents</h2>
-                    <p>Specialized agents designed for different diagnosis tasks.</p>
+                    <h2>AI Agent Workspace</h2>
+                    <p>Specialized autonomous agents working in sequence to diagnose failures.</p>
                 </div>
-                <span class="section-tag">5 AGENTS DESIGNED</span>
+                <span class="section-tag">5 AGENTS ARCHITECTED</span>
             </div>
 
             <div class="agent-grid">
-
-                <div class="agent-card">
-                    <div class="agent-icon purple">◈</div>
+                <div class="agent-card active-agent">
+                    <div class="agent-card-top">
+                        <div class="agent-icon purple">◈</div>
+                        <span class="agent-status active">● Active</span>
+                    </div>
                     <span class="agent-number">AGENT 01</span>
                     <h3>Triage Agent</h3>
-                    <p>Classifies severity, priority and affected software components.</p>
-                    <span class="agent-status">Implemented</span>
+                    <p>Classifies severity, execution priority, and impacted system components.</p>
                 </div>
 
-                <div class="agent-card">
-                    <div class="agent-icon blue">⌕</div>
+                <div class="agent-card active-agent">
+                    <div class="agent-card-top">
+                        <div class="agent-icon blue">⌕</div>
+                        <span class="agent-status active">● Active</span>
+                    </div>
                     <span class="agent-number">AGENT 02</span>
                     <h3>Log Analysis</h3>
-                    <p>Extracts exceptions, errors and failure locations from logs.</p>
-                    <span class="agent-status">Implemented</span>
+                    <p>Extracts exception types, failure files, line numbers, and stack traces.</p>
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon orange">⧉</div>
+                    <div class="agent-card-top">
+                        <div class="agent-icon orange">⧉</div>
+                        <span class="agent-status planned">○ Planned</span>
+                    </div>
                     <span class="agent-number">AGENT 03</span>
                     <h3>Duplicate Detection</h3>
-                    <p>Designed to identify similar historical bug reports.</p>
-                    <span class="agent-status planned">Planned</span>
+                    <p>Matches incoming issues against historical incident embeddings.</p>
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon green">⌘</div>
+                    <div class="agent-card-top">
+                        <div class="agent-icon green">⌘</div>
+                        <span class="agent-status planned">○ Planned</span>
+                    </div>
                     <span class="agent-number">AGENT 04</span>
                     <h3>Root Cause Analysis</h3>
-                    <p>Designed to investigate probable underlying causes.</p>
-                    <span class="agent-status planned">Planned</span>
+                    <p>Correlates service dependencies to isolate underlying systemic faults.</p>
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon pink">✧</div>
+                    <div class="agent-card-top">
+                        <div class="agent-icon pink">✧</div>
+                        <span class="agent-status planned">○ Planned</span>
+                    </div>
                     <span class="agent-number">AGENT 05</span>
                     <h3>Remediation Agent</h3>
-                    <p>Designed to recommend possible fixes for identified issues.</p>
-                    <span class="agent-status planned">Planned</span>
+                    <p>Synthesizes targeted code patches and verification test cases.</p>
                 </div>
-
             </div>
         </section>
 
-
         <!-- SUBMISSION -->
-        <section class="content-section submission-section" id="submit-section">
-
+        <section class="content-section" id="submit-section">
             <div class="section-heading">
                 <div>
                     <span class="eyebrow">START AN INVESTIGATION</span>
                     <h2>Submit a bug report</h2>
-                    <p>Provide the issue details and optional diagnostic logs.</p>
+                    <p>Provide issue context and optional stack traces for multi-agent diagnosis.</p>
                 </div>
             </div>
 
             <div class="submission-layout">
-
                 <div class="form-card">
-
-                    <form id="bugForm">
-
+                    <form id="bugForm" novalidate>
                         <div class="form-group">
-                            <label for="title">Bug title</label>
+                            <label for="title">Bug title <span class="required">*</span></label>
                             <input
                                 type="text"
                                 id="title"
                                 name="title"
-                                placeholder="e.g. Database connection failure"
+                                placeholder="e.g. PostgreSQL connection pool timeout on checkout"
                                 maxlength="200"
                                 required
                             >
@@ -226,106 +229,280 @@
                             <textarea
                                 id="description"
                                 name="description"
-                                placeholder="Describe what happened, what you expected and how to reproduce the issue..."
+                                rows="5"
+                                placeholder="Describe observed behavior, expected outcome, and steps to reproduce..."
                                 maxlength="20000"
-                                
                             ></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="file">Diagnostic logs <span>(Optional)</span></label>
-                            <input
-                                type="file"
-                                id="file"
-                                name="file"
-                                accept=".txt,.log,.json"
-                            >
-                            <small class="field-help">TXT, LOG or JSON · Maximum 1 MB</small>
+                            <label for="file">
+                                Diagnostic logs <span class="optional">(Optional)</span>
+                            </label>
+                            <label for="file" class="file-dropzone" id="fileDropzone">
+                                <input
+                                    type="file"
+                                    id="file"
+                                    name="file"
+                                    accept=".txt,.log,.json"
+                                >
+                                <span class="file-icon">📄</span>
+                                <span class="file-label" id="fileLabel">
+                                    <strong>Click to upload</strong> or drag and drop log file
+                                </span>
+                                <small class="field-help">Supports .TXT, .LOG, or .JSON · Max 1 MB</small>
+                            </label>
                         </div>
 
-                        <button type="submit" class="primary-button submit-button">
+                        <button
+                            type="submit"
+                            id="submitButton"
+                            class="primary-button submit-button"
+                        >
                             Analyze bug report →
                         </button>
-
-                        
-<p id="formMessage"></p>
-
-<div id="analysisResults" class="analysis-results" style="display: none;">
-    <h3>Bug Diagnosis Results</h3>
-
-    <div id="triageResults">
-        <h4>Triage Analysis</h4>
-        <p><strong>Severity:</strong> <span id="severity"></span></p>
-        <p><strong>Priority:</strong> <span id="priority"></span></p>
-        <p><strong>Affected Component:</strong> <span id="component"></span></p>
-        <p><strong>Confidence:</strong> <span id="triageConfidence"></span></p>
-        <p><strong>Reasoning:</strong> <span id="triageReasoning"></span></p>
-    </div>
-
-    <div id="logResults">
-        <h4>Log Analysis</h4>
-        <p><strong>Exception:</strong> <span id="exceptionType"></span></p>
-        <p><strong>Error Message:</strong> <span id="errorMessage"></span></p>
-        <p><strong>Failure File:</strong> <span id="failureFile"></span></p>
-        <p><strong>Failure Method:</strong> <span id="failureMethod"></span></p>
-        <p><strong>Failure Line:</strong> <span id="failureLine"></span></p>
-        <p><strong>Confidence:</strong> <span id="logConfidence"></span></p>
-        <p><strong>Reasoning:</strong> <span id="logReasoning"></span></p>
-        <p><strong>Probable Code Path:</strong></p>
-        <pre id="codePath"></pre>
-    </div>
-</div>
-
-
                     </form>
+
+                    <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
                 </div>
 
+                <!-- WORKFLOW -->
                 <div class="process-card">
-                    <span class="eyebrow">ANALYSIS WORKFLOW</span>
+                    <span class="eyebrow">ANALYSIS PIPELINE</span>
                     <h3>From issue to insight</h3>
+                    <p class="process-intro">Each report passes through a deterministic multi-stage diagnostic pipeline.</p>
 
-                    <div class="process-step">
-                        <div class="process-number">01</div>
-                        <div>
-                            <strong>Report intake</strong>
-                            <p>Capture bug details and diagnostic logs.</p>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="process-number">01</div>
+                            <div>
+                                <strong>Report intake &amp; validation</strong>
+                                <p>Sanitize issue description and parse attached log payloads.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="process-line"></div>
+                        <div class="process-line"></div>
 
-                    <div class="process-step">
-                        <div class="process-number">02</div>
-                        <div>
-                            <strong>Intelligent analysis</strong>
-                            <p>Run triage and log analysis agents.</p>
+                        <div class="process-step">
+                            <div class="process-number">02</div>
+                            <div>
+                                <strong>Parallel agent execution</strong>
+                                <p>Triage and Log Analysis agents evaluate severity and trace errors.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="process-line"></div>
+                        <div class="process-line"></div>
 
-                    <div class="process-step">
-                        <div class="process-number">03</div>
-                        <div>
-                            <strong>Structured insights</strong>
-                            <p>Collect diagnosis results for further investigation.</p>
+                        <div class="process-step">
+                            <div class="process-number">03</div>
+                            <div>
+                                <strong>Structured diagnosis</strong>
+                                <p>Receive confidence-scored insights and exact failure coordinates.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </section>
 
+            <!-- RESULTS -->
+            <section
+                id="analysisResults"
+                class="analysis-results"
+                style="display:none"
+                aria-live="polite"
+            >
+                <div class="results-heading">
+                    <div>
+                        <span class="eyebrow">INTELLIGENT DIAGNOSIS</span>
+                        <h2>Bug Diagnosis Report</h2>
+                        <p>Structured findings generated by BugSense orchestration engine.</p>
+                    </div>
+
+                    <span class="results-status" id="resultsStatus">
+                        <span class="system-dot"></span>
+                        <span>Analysis complete</span>
+                    </span>
+                </div>
+
+                <!-- RESULT SUMMARY -->
+                <div class="result-summary">
+                    <div class="summary-item">
+                        <span>SEVERITY</span>
+                        <strong id="severity" class="severity-value">—</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>PRIORITY</span>
+                        <strong id="priority">—</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>AFFECTED COMPONENT</span>
+                        <strong id="component">—</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>REPORT ID</span>
+                        <strong id="reportId" class="mono">—</strong>
+                    </div>
+                </div>
+
+                <div class="results-grid">
+                    <!-- TRIAGE -->
+                    <article class="result-card triage-card">
+                        <div class="result-card-heading">
+                            <div class="result-agent-icon purple">◈</div>
+                            <div>
+                                <span class="result-kicker">AGENT 01</span>
+                                <h3>Triage Analysis</h3>
+                            </div>
+                            <span class="completed status-complete">Completed</span>
+                        </div>
+
+                        <div class="severity-scale">
+                            <span class="scale-label">SEVERITY CLASSIFICATION</span>
+                            <div class="severity-track">
+                                <span data-level="low">LOW</span>
+                                <span data-level="medium">MEDIUM</span>
+                                <span data-level="high">HIGH</span>
+                                <span data-level="critical">CRITICAL</span>
+                            </div>
+                        </div>
+
+                        <div class="confidence-block">
+                            <div class="confidence-heading">
+                                <span>Classification confidence</span>
+                                <strong id="triageConfidence">—</strong>
+                            </div>
+                            <div class="confidence-track">
+                                <span id="triageConfidenceBar"></span>
+                            </div>
+                        </div>
+
+                        <div class="reasoning-panel">
+                            <span class="detail-label">CLASSIFICATION REASONING</span>
+                            <p id="triageReasoning">—</p>
+                        </div>
+                    </article>
+
+                    <!-- LOG ANALYSIS -->
+                    <article class="result-card log-card">
+                        <div class="result-card-heading">
+                            <div class="result-agent-icon blue">⌕</div>
+                            <div>
+                                <span class="result-kicker">AGENT 02</span>
+                                <h3>Log Analysis</h3>
+                            </div>
+                            <span class="completed status-complete">Completed</span>
+                        </div>
+
+                        <div class="exception-panel">
+                            <span class="detail-label">DETECTED EXCEPTION</span>
+                            <strong id="exceptionType" class="mono">—</strong>
+                            <p id="errorMessage">—</p>
+                        </div>
+
+                        <div class="log-details-grid">
+                            <div class="log-detail">
+                                <span>FAILURE FILE</span>
+                                <strong id="failureFile" class="mono">—</strong>
+                            </div>
+
+                            <div class="log-detail">
+                                <span>FAILURE METHOD</span>
+                                <strong id="failureMethod" class="mono">—</strong>
+                            </div>
+
+                            <div class="log-detail">
+                                <span>FAILURE LINE</span>
+                                <strong id="failureLine" class="mono">—</strong>
+                            </div>
+
+                            <div class="log-detail">
+                                <span>FAILURE CLASS</span>
+                                <strong id="failureClass" class="mono">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="confidence-block">
+                            <div class="confidence-heading">
+                                <span>Log analysis confidence</span>
+                                <strong id="logConfidence">—</strong>
+                            </div>
+                            <div class="confidence-track blue-track">
+                                <span id="logConfidenceBar"></span>
+                            </div>
+                        </div>
+
+                        <div class="reasoning-panel blue-reasoning">
+                            <span class="detail-label">ANALYSIS REASONING</span>
+                            <p id="logReasoning">—</p>
+                        </div>
+
+                        <div class="code-path-panel">
+                            <div class="code-path-heading">
+                                <span>PROBABLE CODE PATH · STACK TRACE</span>
+                                <button type="button" id="copyTraceBtn" class="copy-trace-btn">Copy</button>
+                            </div>
+                            <pre id="codePath">No code path detected.</pre>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- AGENT PIPELINE -->
+                <div class="pipeline-card">
+                    <div class="pipeline-title">
+                        <div>
+                            <span class="eyebrow">ORCHESTRATION</span>
+                            <h3>Multi-agent execution flow</h3>
+                        </div>
+                        <span class="pipeline-live">● Execution complete</span>
+                    </div>
+
+                    <div class="pipeline-flow">
+                        <div class="pipeline-node">
+                            <span>01</span>
+                            <strong>Bug Report</strong>
+                            <small>Input ingested</small>
+                        </div>
+
+                        <div class="pipeline-connector">→</div>
+
+                        <div class="pipeline-node triage-node">
+                            <span>02</span>
+                            <strong>Triage Agent</strong>
+                            <small>Classification</small>
+                        </div>
+
+                        <div class="pipeline-connector">→</div>
+
+                        <div class="pipeline-node log-node">
+                            <span>03</span>
+                            <strong>Log Agent</strong>
+                            <small>Trace extraction</small>
+                        </div>
+
+                        <div class="pipeline-connector">→</div>
+
+                        <div class="pipeline-node final-node">
+                            <span>04</span>
+                            <strong>Insights</strong>
+                            <small>Report compiled</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
 
         <!-- INTELLIGENCE -->
         <section class="content-section" id="intelligence-section">
             <div class="intelligence-banner">
                 <div>
-                    <span class="eyebrow">BUILT FOR DEVELOPERS</span>
-                    <h2>Beyond error detection.</h2>
+                    <span class="eyebrow">BUILT FOR ENGINEERING TEAMS</span>
+                    <h2>Beyond simple error detection.</h2>
                     <p>
-                        Bringing together defect intelligence, log investigation
-                        and historical knowledge to support smarter debugging.
+                        Combining automated defect triage and deep log inspection
+                        to accelerate incident resolution across modern stacks.
                     </p>
                 </div>
                 <div class="banner-symbol">✳</div>
@@ -333,8 +510,8 @@
         </section>
 
         <footer>
-            <span>BugSense AI</span>
-            <span>Intelligent Bug Diagnosis Platform</span>
+            <span><strong>BugSense AI</strong></span>
+            <span>Intelligent Bug Diagnosis Platform · 2026</span>
         </footer>
 
     </main>

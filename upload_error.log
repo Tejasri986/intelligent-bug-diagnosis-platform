@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "app/routes/upload.py", line 56, in upload_image
+    save_file(uploaded_file)
+  File "app/services/storage.py", line 32, in save_file
+    image = Image.open(file)
+  File "PIL/Image.py", line 3432, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object>
